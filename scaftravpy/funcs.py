@@ -37,16 +37,22 @@ def fib(n):
     :param n: integer
     :return: n-th Fibonacci number
     """
-    if not isinstance(n, int):
+    if not isinstance(n, (int, list)):
         raise TypeError(FIB_TYPE_ERROR)
-    
-    if n < 0:
-        raise ValueError(FIB_NEG_ERROR)
 
-    elif n == 0:
-        return 0
+    if isinstance(n, list):
+        res = [fib(val) for val in n]
+        return res
     else:
-        a, b = 1, 1
-        for i in range(n-1):
-            a, b = b, a+b
-        return a
+        if n < 0:
+            raise ValueError(FIB_NEG_ERROR)
+
+        elif n == 0:
+            return 0
+        elif n == 1:
+            return 1
+        else:
+            a, b = 1, 1
+            for i in range(n-1):
+                a, b = b, a+b
+            return a
