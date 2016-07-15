@@ -1,0 +1,8 @@
+codecov:
+  branch: master
+
+  status:
+    project:
+      default:  true
+        target: auto
+        threshold: null
