@@ -32,14 +32,14 @@ install:
   - conda info -a
 
   # Replace dep1 dep2 ... with your dependencies
-  - conda create -q -n mytravis-test-env python=$PYTHON_VERSION
+  - conda create -q -n mytravis-test-env python=$PYTHON_VERSION pytest pytest-cov
   - source activate mytravis-test-env
   - pip install codecov
   - python setup.py install
 
 script:
   - python setup.py test
-  
+
 before_script:
   - git config --global user.email "dauerbach@ucsd.edu"
   - git config --global user.name "Dan Auerbach"
