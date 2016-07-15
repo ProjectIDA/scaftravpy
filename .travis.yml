@@ -10,7 +10,7 @@ python:
 
 env:
   matrix:
-    - DISTRIB="conda" PYTHON_VERSION="3.5" COVERAGE="false"
+    - DISTRIB="conda" PYTHON_VERSION="3.5" COVERAGE="true"
 
 addons:
   apt:
@@ -44,7 +44,10 @@ before_script:
   - git config --global user.name "Dan Auerbach"
 
 after_success:
-  - if [[ "$COVERAGE" == "true" ]]; then coveralls || echo "failed"; fi
+  - if [[ "$COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash) || echo "failed"; fi
 
 cache:
   - apt
+
+
+bash <(curl -s https://codecov.io/bash)
