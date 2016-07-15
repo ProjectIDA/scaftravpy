@@ -43,8 +43,11 @@ before_script:
   - git config --global user.email "dauerbach@ucsd.edu"
   - git config --global user.name "Dan Auerbach"
 
+# after_success:
+#   - if [[ "$COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash) || echo "failed"; fi
+
 after_success:
-  - if [[ "$COVERAGE" == "true" ]]; then bash <(curl -s https://codecov.io/bash) || echo "failed"; fi
+  - bash <(curl -s https://codecov.io/bash)
 
 cache:
   - apt
