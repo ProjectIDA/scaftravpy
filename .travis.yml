@@ -39,7 +39,7 @@ install:
 
 script:
   # - python setup.py test
-  - py.test --cov=./
+  - py.test --cov scaftravpy --cov-report term-missing
   
 before_script:
   - git config --global user.email "dauerbach@ucsd.edu"
